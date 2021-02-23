@@ -7,7 +7,5 @@ class store {
 public:
     store(Item list[]);
     void printItems();
-
-private:
-    Item* _list[];
+    Item* _list;
 };

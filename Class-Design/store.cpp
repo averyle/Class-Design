@@ -7,10 +7,8 @@ store::store(Item list[])
 
 void store::printItems() {
     std::cout << "Store:\n";
-    int i = 0;
-    while (i < 100) {
-        Item* item = _list[i];
-        std::cout << item->getName() << " x " << item->getStock() << "\n";
-        i++;
+    for (int i = 0; i < 100; i++) {
+        Item item = _list[i];
+        std::cout << item.getName() << " x " << item.getStock() << "\n";
     }
 }
