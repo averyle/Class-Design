@@ -5,7 +5,8 @@
 
 class store {
 public:
-    store(Item list[]);
+    store(Item list[],int size);
     void printItems();
     Item* _list;
+    int _size;
 };
