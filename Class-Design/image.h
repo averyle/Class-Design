@@ -18,16 +18,16 @@ public:
 	void setISO();
 	void setFlash();
 	
-	std::string getFileName();
-	std::string getType();
-	std::string getDate();
-	double getSize();
-	std::string getAuthor();
-	std::string getDimensions();
-	int getASize();
-	double getExpTime();
-	int getISO();
-	std::string getFlash();
+	std::string getFileName() const;
+	std::string getType() const;
+	std::string getDate() const;
+	double getSize() const;
+	std::string getAuthor() const;
+	std::string getDimensions() const;
+	int getASize() const;
+	double getExpTime() const;
+	int getISO() const;
+	std::string getFlash() const;
 
 private:
 	std::string fileName , type = "type" , date = "date", author = "author";
@@ -36,15 +36,4 @@ private:
 	bool flash = 0;
 };
 
-inline void print(image param) {
-	std::cout << "File Name: " << param.getFileName() <<
-		"\nType: " << param.getType() <<
-		"\nDate: " << param.getDate() <<
-		"\nSize: " << param.getSize() << " MB" <<
-		"\nAuthor: " << param.getAuthor() <<
-		"\nDimensions: " << param.getDimensions() <<
-		"\nAperture size: f/" << param.getASize() <<
-		"\nExposure time: 1/" << param.getExpTime() <<
-		"\nISO: " << param.getISO() <<
-		"\nFlash: " << param.getFlash();
-}
+std::ostream& operator<<(std::ostream& os, const image& param);

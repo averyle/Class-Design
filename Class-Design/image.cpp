@@ -87,47 +87,60 @@ void image::setFlash() {
 		flash = 0;
 }
 
-std::string image::getFileName() {
+std::string image::getFileName() const {
 	return fileName;
 }
 
-std::string image::getType() {
+std::string image::getType() const {
 	return type;
 }
 
-std::string image::getDate() {
+std::string image::getDate() const {
 	return date;
 }
 
-double image::getSize() {
+double image::getSize() const {
 	return size;
 }
 
-std::string image::getAuthor() {
+std::string image::getAuthor() const {
 	return author;
 }
 
-std::string image::getDimensions() {
+std::string image::getDimensions() const {
 	std::string dimensions = std::to_string(width) + " by " + std::to_string(height);
 	return dimensions;
 }
 
-int image::getASize() {
+int image::getASize() const {
 	return ASize;
 }
 
-double image::getExpTime() {
+double image::getExpTime() const {
 	return expTime;
 }
 
-int image::getISO() {
+int image::getISO() const {
 	return ISO;
 }
 
-std::string image::getFlash() {
+std::string image::getFlash() const {
 	if (flash == 0)
 		return "Off";
 	else
 		return "On";
 }
 
+std::ostream& operator<<(std::ostream& os, const image& param) {
+	os << "File Name: " << param.getFileName() <<
+		"\nType: " << param.getType() <<
+		"\nDate: " << param.getDate() <<
+		"\nSize: " << param.getSize() << " MB" <<
+		"\nAuthor: " << param.getAuthor() <<
+		"\nDimensions: " << param.getDimensions() <<
+		"\nAperture size: f/" << param.getASize() <<
+		"\nExposure time: 1/" << param.getExpTime() <<
+		"\nISO: " << param.getISO() <<
+		"\nFlash: " << param.getFlash();
+	return os;
+}
