@@ -4,13 +4,14 @@
 using namespace std;
 
 int main() {
-	Item Book{ "Book",12};
-	Book.setStock(12);
-	Item ColoredPencil{ "Colored Pencils",12};
-	ColoredPencil.setStock(15);
-	Item Marker{ "Markers",13 };
-	Marker.setStock(50);
-	Item a[3] = { Book,ColoredPencil,Marker };
-	store example{ a };
-	example.printItems();
+	Item Books{ "Books",5 };
+	Item ColoredPencils{ "Colored Pencils", 3 };
+	Item a[2] = { Books, ColoredPencils };
+	store Store{ a,2 };
+	Item booksOrder{ "Books",2 };
+	Item coloredPencilsOrder{ "Colored Pencils", 1 };
+	Item b[2] = { booksOrder, coloredPencilsOrder };
+	order newOrder{ b,2 };
+	Store.processOrder(newOrder);
+	std::cout << Store;
 } 
