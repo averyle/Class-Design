@@ -1,6 +1,7 @@
 #include "store.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 store::store(Item list[], int size)
     : _list{ list }, _size{ size }{}
@@ -14,15 +15,16 @@ std::ostream& operator<<(std::ostream& os, const store& param) {
     return os;
 }
 
-void store::processOrder(const order& param) const {
-    Item* newOrder = param.getOrderList();
+void store::processOrder(const order& param) {
+    Item *newOrder = param.orderList;
     for (int i = 0; i < param.orderSize; i++) {
         Item item = newOrder[i];
+        std::cout << item;
         for (int j = 0; j < _size; j ++) {
-            Item oItem = _list[i];
-            if (item._name == oItem._name) {
+            Item oItem = _list[j];
+            if (oItem._name == item._name) {
                 int nStock = oItem._stock - item._stock;
-                item.setStock(nStock);
+                oItem.setStock(nStock);
             }
         }
     }
@@ -30,7 +32,3 @@ void store::processOrder(const order& param) const {
 
 order::order(Item list[], int size)
     : orderList{ list }, orderSize{ size } {}
-
-Item* order::getOrderList() const {
-    return orderList;
-}
