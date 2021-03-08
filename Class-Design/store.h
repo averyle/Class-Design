@@ -2,20 +2,24 @@
 #include <iostream>
 #include <string>
 #include "Item.h"
+#include <vector>
+
+using namespace std;
 
 class order {
 public:
-    order(Item list[], int size);
-    Item* orderList;
-    int orderSize;
+    order();
+    void add(Item item);
+    vector<Item> getOrderList() const;
+    vector<Item> orderList;
 };
 
 class store {
 public:
-    store(Item list[],int size);
+    store(vector<Item> itemList);
+    vector<Item> getStoreList() const;
     void processOrder(const order& param);
-    Item* _list;
-    int _size;
+    vector<Item> storeList;
 };
 
 std::ostream& operator<<(std::ostream& os, const store& param);
